@@ -1,2 +1,2 @@
-ln -sf ~/.vimrc ~/home_dots/vim/.vimrc
-ln -sf ~/.tmux.conf ~/home_dots/tmux/.tmux.conf
+ln -sf ~/home_dots/vim/.vimrc ~/.vimrc
+ln -sf ~/home_dots/tmux/.tmux.conf ~/.tmux.conf
