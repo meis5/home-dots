@@ -1,11 +1,51 @@
-.DS_Store
-*.swp
-.idea/
+# 编译结果文件 #
+##############
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# 零时文件 #
+###########
 .tmp/
-dist/
-node_modules/
-*.zip
-.tern-port
-npm-debug.log
-.vscode/
+*.swp
+*.swo
+*~
+
+# 包文件 #
+############
 *.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+#   日志和数据库文件   #
+######################
+*.log
+# *.sql
+*.sqlite
+
+#  操作系统产生的文件   #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+#    NODEJS 项目配置   #
+######################
+node_modules/
+npm-debug.log
+.tern-project
+.tern-port
+
+#    编辑器格式配置    #
+######################
+.idea/
+.editorconfig
