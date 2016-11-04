@@ -23,12 +23,17 @@ ln -sf ~/home_dots/emacs/init.lisp ~/.spacemacs
 
 # 建立 tmux 配置符号链接
 ln -sf ~/home_dots/tmux/.tmux.conf ~/.tmux.conf
-# # git
+
+# git 配置
 ln -sf ~/home_dots/git/.gitconfig ~/.gitconfig
 ln -sf ~/home_dots/.gitignore ~/.gitignore
-# editorconfig
+
+# editorconfig 编辑器格式统一配置
 ln -sf ~/home_dots/.editorconfig ~/.editorconfig
 
+# =============================================
+# ================ 前端开发相关 =================
+# =============================================
 # 安装 nodejs
 if ! type "tern" > /dev/null; then
   echo "node 没有找到, 安装中 ..."
@@ -46,3 +51,4 @@ if ! type "eslint" > /dev/null; then
   echo "eslint 没有找到, 安装中 ..."
   npm i -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint
 fi
+ln -sf ~/home_dots/eslint/.eslintrc ~/.eslintrc
