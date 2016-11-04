@@ -19,8 +19,8 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
     echo "安装 brew 工具 ..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-  # brew update && brew upgrade
-  # brew install zsh curl wget git tmux z fasd git-flow
+  brew update && brew upgrade && brew cask update
+  brew install zsh curl wget git tmux z fasd git-flow
 fi
 
 # =============================================
@@ -37,7 +37,7 @@ ln -sf ~/home_dots/zsh/.zshrc ~/.zshrc
 if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
   echo "安装 oh-my-nvim 插件管理器 Plug ..."
   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  pip3 install --upgrade pi
+  pip3 install --upgrade pip
   pip3 install neovim
 fi
 ln -sf ~/home_dots/nvim/init.vim ~/.config/nvim/init.vim
