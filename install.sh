@@ -1,7 +1,31 @@
 # 先进入 Home 目录
 cd ~
 
-# zsh
+# =============================================
+# =================  平台设置  =================
+# =============================================
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  echo "ubuntu 系统更新 ..."
+  platform='Linux'
+  apt-get update -y && apt-get upgrade -y
+  apt get install -y zsh curl wget git tmux software-properties-common gitflow
+  apt-get update -y && apt-get upgrade -y
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  echo "mac 系统更新 ..."
+  platform='Darwin'
+  if ! type "brew" > /dev/null; then
+    echo "安装 brew 工具 ..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+  # brew update && brew upgrade
+  # brew install zsh curl wget git tmux z fasd git-flow
+fi
+
+# =============================================
+# =================  基本工具  =================
+# =============================================
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "安装 oh-my-zsh ..."
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -60,4 +84,6 @@ if ! type "eslint" > /dev/null; then
   npm i -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint
 fi
 ln -sf ~/home_dots/eslint/.eslintrc ~/.eslintrc
-# go 语言开发相关
+# =============================================
+# =================  go 语言  ==================
+# =============================================
