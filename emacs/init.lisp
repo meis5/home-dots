@@ -102,6 +102,8 @@
 )
 
 (defun dotspacemacs/user-init ()
+  (setq-default dotspacemacs-line-numbers t)
+  (setq-default dotspacemacs-line-numbers 'relative)
 )
 
 (defun dotspacemacs/user-config ()
