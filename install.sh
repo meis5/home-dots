@@ -52,3 +52,4 @@ if ! type "eslint" > /dev/null; then
   npm i -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint
 fi
 ln -sf ~/home_dots/eslint/.eslintrc ~/.eslintrc
+# go 语言开发相关
