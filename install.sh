@@ -55,6 +55,9 @@ ln -sf ~/home_dots/.gitignore ~/.gitignore
 # editorconfig 编辑器格式统一配置
 ln -sf ~/home_dots/.editorconfig ~/.editorconfig
 
+# jetbrains idea
+ln -sf ~/home_dots/.ideavimrc ~/.ideavimrc
+
 # =============================================
 # ================ 前端开发相关 =================
 # =============================================
