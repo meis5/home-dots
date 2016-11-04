@@ -56,7 +56,7 @@ ln -sf ~/home_dots/.gitignore ~/.gitignore
 ln -sf ~/home_dots/.editorconfig ~/.editorconfig
 
 # jetbrains idea
-ln -sf ~/home_dots/.ideavimrc ~/.ideavimrc
+ln -sf ~/home_dots/nvim/.ideavimrc ~/.ideavimrc
 
 # =============================================
 # ================ 前端开发相关 =================
