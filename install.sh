@@ -35,20 +35,28 @@ ln -sf ~/home_dots/.editorconfig ~/.editorconfig
 # ================ 前端开发相关 =================
 # =============================================
 # 安装 nodejs
-if ! type "tern" > /dev/null; then
-  echo "node 没有找到, 安装中 ..."
+if ! type "node" > /dev/null; then
+  echo "安装 node binary ..."
   brew install nodejs
 fi
 
+# 安装 yarn
+if ! type "yarn" > /dev/null; then
+  echo "安装 yarn package manager ..."
+  npm install -g yarn
+fi
+ln -sf ~/home_dots/npm/.npmrc ~/.npmrc
+ln -sf ~/home_dots/npm/.yarnrc ~/.yarnr
+
 # 安装 ternjs
 if ! type "tern" > /dev/null; then
-  echo "tern 没有找到, 安装中 ..."
+  echo "安装 tern javascript autocomplete server ..."
   npm i -g tern
 fi
 
 # 安装 eslint
 if ! type "eslint" > /dev/null; then
-  echo "eslint 没有找到, 安装中 ..."
+  echo "安装 eslint javascript linter ..."
   npm i -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint
 fi
 ln -sf ~/home_dots/eslint/.eslintrc ~/.eslintrc
