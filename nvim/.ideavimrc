@@ -1,5 +1,4 @@
-let mapleader = "\<Space>"
-imap jj <Esc>
+imap fd <Esc>
 
 nnoremap <Leader>ww :w<CR> " 保存
 nnoremap <Leader>qq :q<CR> " 退出
