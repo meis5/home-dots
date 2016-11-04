@@ -13,7 +13,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 # Golang 相关配置
 export GOROOT="/usr/local/opt/go/libexec"
-export GOPATH="/Users/syang3/GOPATH"
+export GOPATH="/Users/syang3/Workspace"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
 # Nodejs 相关配置
