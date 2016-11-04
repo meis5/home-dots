@@ -42,10 +42,10 @@ Thumbs.db
 ######################
 node_modules/
 npm-debug.log
-.tern-project
+# .tern-project
 .tern-port
 
 #    编辑器格式配置    #
 ######################
 .idea/
-.editorconfig
+# .editorconfig

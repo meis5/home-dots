@@ -66,7 +66,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 "" ======= 常用快键设置
-imap jj <Esc>
+imap fd <Esc>
 
 nnoremap <Leader>ww :w<CR> " 保存
 nnoremap <Leader>qq :q<CR> " 退出
