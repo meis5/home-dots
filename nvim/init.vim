@@ -36,7 +36,13 @@ let g:user_emmet_leader_key='<C-Y>'
 
 
 " 基本设置
-let mapleader = "\<Space>"
+" 设置无 bell 铃声
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+let mapleader = "\<Space>" " 前缀键 设置为空格
 " imap <C-I> <Esc>
 " noremap jj <ESC>
 " nnoremap ; :
