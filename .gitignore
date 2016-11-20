@@ -48,4 +48,4 @@ npm-debug.log
 #    编辑器格式配置    #
 ######################
 .idea/
-# .editorconfig
+.editorconfig
