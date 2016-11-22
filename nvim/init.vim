@@ -12,7 +12,6 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
@@ -26,6 +25,8 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'altercation/vim-colors-solarized'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -64,6 +65,10 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+
+" themes
+set background=light
+colorscheme solarized
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -105,8 +110,8 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" set foldmethod=indent
-set foldmethod=syntax
+" set foldmethod=syntax
+set foldmethod=indent
 set nofoldenable " za 开关 zM 关闭所有 zR 打开所有
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -115,14 +120,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " indentaion guide
 " let g:indent_guides_enable_on_vim_startup=1
-" let g:indent_guides_start_level=2
-" let g:indent_guides_guide_size=1
-" :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
-"
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 "
 " 设置左边行号的前景和背景
-" highlight LineNr ctermfg=gray ctermbg=white
-
+" highlight LineNr ctermfg=Blue ctermbg=black
 
 " nerdtree 设置
 map <leader>ft :NERDTreeToggle<CR>
