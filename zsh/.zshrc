@@ -10,3 +10,4 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias l="ls -al"
 alias ls="ls"
+alias c="clear"

@@ -25,8 +25,19 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'altercation/vim-colors-solarized'
-" Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'tpope/vim-unimpaired'
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-sensible'
+Plug 'groenewege/vim-less'
+Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'mxw/vim-jsx'
+Plug 'othree/html5.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'leafgarland/typescript-vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 call plug#end()
 
@@ -68,7 +79,7 @@ set softtabstop=2
 
 " themes
 set background=light
-colorscheme solarized
+colorscheme bclear
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
