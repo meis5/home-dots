@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="amuse"
 
 plugins=(git brew docker fasd node npm osx sudo tmux common-aliases)
 
