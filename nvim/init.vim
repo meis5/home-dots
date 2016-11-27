@@ -81,6 +81,17 @@ set softtabstop=2
 set background=light
 colorscheme bclear
 
+" :hi CursorLine   cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
+" :hi CursorColumn cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
+" :set cursorline
+" :set cursorcolumn
+"
+"
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
@@ -90,6 +101,7 @@ set writebackup
 "" ======= 常用快键设置
 imap fd <Esc>
 
+imap <Leader>s <Esc>:w<CR> " 保存
 nnoremap <Leader>ww :w<CR> " 保存
 nnoremap <Leader>qq :q<CR> " 退出
 nnoremap <Leader>wa :wa<CR> " 保存所有
