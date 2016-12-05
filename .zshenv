@@ -1,16 +1,15 @@
-export HOME=/home/s
-export LIBRARY_HOME=$HOME/Library
+# 用户环境变量配置
+export HOME="/Users/syang3"
+# Java 相关配置
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
-# Java
-export JAVA_HOME=$LIBRARY_HOME/jdk1.8.0
-export PATH=$JAVA_HOME/bin:$PATH
+# Golang 相关配置
+export GOROOT="/usr/local/opt/go/libexec"
+export GOPATH="/Users/syang3/Workspace"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
-# Go
-export GOROOT=$LIBRARY_HOME/go
-export GOPATH=$HOME/Workspace
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-
-# Node
-export NODE_HOME=$LIBRARY_HOME/node-v7.1.0
-export PATH=$NODE_HOME/bin:$PATH
+# Nodejs 相关配置
+export NODE_HOME="/usr/local/opt/node"
+export PATH="$NODE_HOME/bin:$PATH"
 

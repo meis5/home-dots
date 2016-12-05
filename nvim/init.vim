@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -38,16 +37,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'leafgarland/typescript-vim'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
-
-
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<C-Y>'
-
-
-" 基本设置
+" ==========================================================
+" ======================= 基本设置 =========================
+" ==========================================================
 " 设置无 bell 铃声
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -55,12 +50,6 @@ if has('autocmd')
 endif
 
 let mapleader = "\<Space>" " 前缀键 设置为空格
-" imap <C-I> <Esc>
-" noremap jj <ESC>
-" nnoremap ; :
-" nnoremap : ;
-" nmap <tab> gt
-" nmap <s-tab> gT
 set laststatus=2
 set ruler
 set number
@@ -71,7 +60,11 @@ set nowrap
 syntax enable
 syntax on
 
+filetype on
+filetype plugin on
 filetype indent on
+filetype plugin indent on
+
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -81,16 +74,16 @@ set softtabstop=2
 set background=light
 colorscheme bclear
 
-" :hi CursorLine   cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
 " :hi CursorColumn cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
-" :set cursorline
+:set cursorline
 " :set cursorcolumn
 "
 "
 " Highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
+" set cursorline cursorcolumn
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -98,8 +91,10 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-"" ======= 常用快键设置
-imap fd <Esc>
+" ==========================================================
+" ====================== 常用快键 ==========================
+" ==========================================================
+imap jj <Esc>
 
 imap <Leader>s <Esc>:w<CR> " 保存
 nnoremap <Leader>ww :w<CR> " 保存
@@ -120,6 +115,46 @@ nmap <Leader>w, :vertical resize -3<CR> " 增大窗格
 nmap <Leader>wr <C-w>r " 循环充值窗口位置
 nmap <Leader>wx <C-w>r " 和下一个窗口交换位置
 
+function! MarkWindowSwap()
+    " marked window number
+    let g:markedWinNum = winnr()
+    let g:markedBufNum = bufnr("%")
+endfunction
+
+function! DoWindowSwap()
+    let curWinNum = winnr()
+    let curBufNum = bufnr("%")
+    " Switch focus to marked window
+    exe g:markedWinNum . "wincmd w"
+
+    " Load current buffer on marked window
+    exe 'hide buf' curBufNum
+
+    " Switch focus to current window
+    exe curWinNum . "wincmd w"
+
+    " Load marked buffer on current window
+    exe 'hide buf' g:markedBufNum
+endfunction
+
+nnoremap <Leader>H :call MarkWindowSwap()<CR> <C-w>h :call DoWindowSwap()<CR>
+nnoremap <Leader>J :call MarkWindowSwap()<CR> <C-w>j :call DoWindowSwap()<CR>
+nnoremap <Leader>K :call MarkWindowSwap()<CR> <C-w>k :call DoWindowSwap()<CR>
+nnoremap <Leader>L :call MarkWindowSwap()<CR> <C-w>l :call DoWindowSwap()<CR>
+
+" buffer
+map <Leader>bj :bprev<CR>
+map <Leader>bk :bnext<CR>
+map <Leader>bd :bd<CR>
+map <Leader>bf :b
+map <Leader>bb <C-^>
+
+set splitbelow
+set splitright
+
+" ==========================================================
+" ======================== 插件配置 ========================
+" ==========================================================
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -149,7 +184,43 @@ let g:indent_guides_guide_size=1
 "
 " 设置左边行号的前景和背景
 " highlight LineNr ctermfg=Blue ctermbg=black
+"
 
+" emmet 设置
+let g:user_emmet_leader_key='<C-y>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,js,jsx,javascript,javascript.jsx,css,scss,less EmmetInstall
+imap <Leader><tab> <C-y>,
+
+" imap   <C-y>,   <plug>(emmet-expand-abbr)
+" imap   <C-y>;   <plug>(emmet-expand-word)
+" imap   <C-y>u   <plug>(emmet-update-tag)
+" imap   <C-y>d   <plug>(emmet-balance-tag-inward)
+" imap   <C-y>D   <plug>(emmet-balance-tag-outward)
+" imap   <C-y>n   <plug>(emmet-move-next)
+" imap   <C-y>N   <plug>(emmet-move-prev)
+" imap   <C-y>i   <plug>(emmet-image-size)
+" imap   <C-y>/   <plug>(emmet-toggle-comment)
+" imap   <C-y>j   <plug>(emmet-split-join-tag)
+" imap   <C-y>k   <plug>(emmet-remove-tag)
+" imap   <C-y>a   <plug>(emmet-anchorize-url)
+" imap   <C-y>A   <plug>(emmet-anchorize-summary)
+" imap   <C-y>m   <plug>(emmet-merge-lines)
+" imap   <C-y>c   <plug>(emmet-code-pretty)
+
+" autocmd FileType css imap <tab> <plug>(emmet-expand-abbr)
+
+" autocmd FileType html,js,jsx,javascript.jsx,css,scss,less imap <tab> <C-y>,
+"
+
+let g:user_emmet_settings = {
+\  'js' : {
+\    'extends' : 'html',
+\  },
+\  'jsx' : {
+\    'extends' : 'html',
+\  },
+\}
 " nerdtree 设置
 map <leader>ft :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode = 'l'
@@ -176,7 +247,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:deoplete#enable_at_startup = 1
 set completeopt+=noinsert
 
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " Shell 模式配置
+map <Leader>tt :terminal<CR>
+tnoremap jj <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
@@ -270,12 +345,19 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_error_symbol = '❌'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
+
+let g:syntastic_error_symbol = 'x'
+let g:syntastic_style_error_symbol = 'x'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_warning_symbol = '!'
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+
