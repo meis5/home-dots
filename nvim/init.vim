@@ -70,7 +70,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-" themes
+" 主题
+set guifont=DroidSansMonoForPowerlineNerdFont\ 30
 set background=light
 colorscheme bclear
 
@@ -116,25 +117,21 @@ nmap <Leader>wr <C-w>r " 循环充值窗口位置
 nmap <Leader>wx <C-w>r " 和下一个窗口交换位置
 
 function! MarkWindowSwap()
-    " marked window number
-    let g:markedWinNum = winnr()
-    let g:markedBufNum = bufnr("%")
+  " marked window number
+  let g:markedWinNum = winnr()
+  let g:markedBufNum = bufnr("%")
 endfunction
 
 function! DoWindowSwap()
-    let curWinNum = winnr()
-    let curBufNum = bufnr("%")
-    " Switch focus to marked window
-    exe g:markedWinNum . "wincmd w"
-
-    " Load current buffer on marked window
-    exe 'hide buf' curBufNum
-
-    " Switch focus to current window
-    exe curWinNum . "wincmd w"
-
-    " Load marked buffer on current window
-    exe 'hide buf' g:markedBufNum
+  let curWinNum = winnr()
+  let curBufNum = bufnr("%")
+  " Switch focus to marked window
+  exe g:markedWinNum . "wincmd w"
+  " Load current buffer on marked window
+  " Switch focus to current window
+  exe curWinNum . "wincmd w"
+  " Load marked buffer on current window
+  exe 'hide buf' g:markedBufNum
 endfunction
 
 nnoremap <Leader>H :call MarkWindowSwap()<CR> <C-w>h :call DoWindowSwap()<CR>
@@ -147,7 +144,6 @@ map <Leader>bj :bprev<CR>
 map <Leader>bk :bnext<CR>
 map <Leader>bd :bd<CR>
 map <Leader>bf :b
-map <Leader>bb <C-^>
 
 set splitbelow
 set splitright
@@ -214,27 +210,27 @@ imap <Leader><tab> <C-y>,
 "
 
 let g:user_emmet_settings = {
-\  'js' : {
-\    'extends' : 'html',
-\  },
-\  'jsx' : {
-\    'extends' : 'html',
-\  },
-\}
+  \ 'js' : {
+  \   'extends' : 'html',
+  \ },
+  \ 'jsx' : {
+  \   'extends' : 'html',
+  \ },
+  \ }
 " nerdtree 设置
 map <leader>ft :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode = 'l'
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+  \ "Modified"  : "✹",
+  \ "Staged"    : "✚",
+  \ "Untracked" : "✭",
+  \ "Renamed"   : "➜",
+  \ "Unmerged"  : "═",
+  \ "Deleted"   : "✖",
+  \ "Dirty"     : "✗",
+  \ "Clean"     : "✔︎",
+  \ "Unknown"   : "?"
+  \ }
 
 " airline 配置
 let g:airline_powerline_fonts = 1
@@ -297,39 +293,39 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
 let g:unite_source_menu_menus.git = {
-    \ 'description' : '            gestionar repositorios git
-        \                            ⌘ [espacio]g',
-    \}
+  \ 'description' : '          gestionar repositorios git
+  \                            ⌘ [espacio]g',
+  \}
 let g:unite_source_menu_menus.git.command_candidates = [
-    \['▷ tig                                                        ⌘ ,gt',
-        \'normal ,gt'],
-    \['▷ git status       (Fugitive)                                ⌘ ,gs',
-        \'Gstatus'],
-    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
-        \'Gdiff'],
-    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
-        \'Gcommit'],
-    \['▷ git log          (Fugitive)                                ⌘ ,gl',
-        \'exe "silent Glog | Unite quickfix"'],
-    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
-        \'Gblame'],
-    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
-        \'Gwrite'],
-    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
-        \'Gread'],
-    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
-        \'Gremove'],
-    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
-        \'exe "Gmove " input("destino: ")'],
-    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
-        \'Git! push'],
-    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
-        \'Git! pull'],
-    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
-        \'exe "Git! " input("comando git: ")'],
-    \['▷ git cd           (Fugitive)',
-        \'Gcd'],
-    \]
+  \['▷ tig                                                        ⌘ ,gt',
+    \'normal ,gt'],
+  \['▷ git status       (Fugitive)                                ⌘ ,gs',
+    \'Gstatus'],
+  \['▷ git diff         (Fugitive)                                ⌘ ,gd',
+    \'Gdiff'],
+  \['▷ git commit       (Fugitive)                                ⌘ ,gc',
+    \'Gcommit'],
+  \['▷ git log          (Fugitive)                                ⌘ ,gl',
+    \'exe "silent Glog | Unite quickfix"'],
+  \['▷ git blame        (Fugitive)                                ⌘ ,gb',
+    \'Gblame'],
+  \['▷ git stage        (Fugitive)                                ⌘ ,gw',
+    \'Gwrite'],
+  \['▷ git checkout     (Fugitive)                                ⌘ ,go',
+    \'Gread'],
+  \['▷ git rm           (Fugitive)                                ⌘ ,gr',
+    \'Gremove'],
+  \['▷ git mv           (Fugitive)                                ⌘ ,gm',
+    \'exe "Gmove " input("destino: ")'],
+  \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
+    \'Git! push'],
+  \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
+    \'Git! pull'],
+  \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
+    \'exe "Git! " input("comando git: ")'],
+  \['▷ git cd           (Fugitive)',
+    \'Gcd'],
+  \]
 nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 
 let g:syntastic_javascript_checkers = ['eslint']
