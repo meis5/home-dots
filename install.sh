@@ -30,8 +30,8 @@ cd ~
 #   echo "安装 oh-my-zsh ..."
 #   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # fi
-# ln -sf ~/home_dots/zsh/.zshrc ~/.zshrc
-# # source ~/.zshrc
+ln -sf ~/home_dots/zsh/.zshrc ~/.zshrc
+# source ~/.zshrc
 
 # 安装 nvim
 if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
