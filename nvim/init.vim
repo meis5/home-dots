@@ -75,7 +75,8 @@ set guifont=DroidSansMonoForPowerlineNerdFont\ 30
 set background=light
 colorscheme bclear
 
-:hi CursorLine   cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=255
+" :hi CursorLine   cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
 " :hi CursorColumn cterm=NONE ctermbg=255 ctermfg=white guibg=darkred guifg=white
 :set cursorline
 " :set cursorcolumn
@@ -97,7 +98,7 @@ set writebackup
 " ==========================================================
 imap jj <Esc>
 
-imap <Leader>s <Esc>:w<CR> " 保存
+" imap <Leader>s <Esc>:w<CR> " 保存
 nnoremap <Leader>ww :w<CR> " 保存
 nnoremap <Leader>qq :q<CR> " 退出
 nnoremap <Leader>wa :wa<CR> " 保存所有
