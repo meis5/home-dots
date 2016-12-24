@@ -41,7 +41,7 @@
     dotspacemacs-elpa-timeout 5
     dotspacemacs-check-for-update nil
     dotspacemacs-elpa-subdirectory nil
-    dotspacemacs-editing-style 'vim
+    dotspacemacs-editing-style 'hybird
     dotspacemacs-verbose-loading nil
     dotspacemacs-startup-banner 'official
     dotspacemacs-startup-lists '((recents . 5)
@@ -51,8 +51,8 @@
     dotspacemacs-themes '(spacemacs-light
                           spacemacs-light)
     dotspacemacs-colorize-cursor-according-to-state t
-    dotspacemacs-default-font '("consolas"
-                                :size 15
+    dotspacemacs-default-font '("source code pro"
+                                :size 14
                                 :weight normal
                                 :width normal
                                 :powerline-scale 1.1)
@@ -103,11 +103,14 @@
 )
 
 (defun dotspacemacs/user-init ()
+  (setq-default tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq-default dotspacemacs-line-numbers t)
   (setq-default dotspacemacs-line-numbers 'relative)
 )
 
 (defun dotspacemacs/user-config ()
+  (setq-default evil-escape-key-sequence "jj")
+  (global-auto-complete-mode 1)
   (editorconfig-mode 1)
   (highlight-indentation-mode 1)
 )
