@@ -11,7 +11,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dyng/ctrlsf.vim'
