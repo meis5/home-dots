@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+eval "$(jump shell)"
 
 ZSH_THEME="amuse"
 
