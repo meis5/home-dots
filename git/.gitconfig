@@ -1,6 +1,6 @@
 [user]
-  name = oorococo
-  email = oorococo@gmail.com
+	name = Syang3
+	email = Sheldon.Yang@activenetwork.com
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -158,3 +158,5 @@
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 [credential]
 	helper = store
+[credential "https://github.com"]
+	username = meis5

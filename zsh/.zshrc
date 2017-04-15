@@ -1,14 +1,12 @@
 export ZSH=$HOME/.oh-my-zsh
-eval "$(jump shell)"
 
 ZSH_THEME="amuse"
 
-plugins=(git brew docker fasd node npm osx sudo tmux common-aliases)
+plugins=(common-aliases git brew docker fasd node npm osx sudo tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # 命令行配置
-alias vim="nvim"
 alias l="ls -al"
 alias ls="ls"
 alias c="clear"
